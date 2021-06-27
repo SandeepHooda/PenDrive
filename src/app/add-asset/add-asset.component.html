@@ -1,0 +1,59 @@
+<!--
+    Note:
+        1. Use formControlName as id for each input field. 
+    eg:
+        <input type="text" formControlName="userName" id="userName"/>
+-->
+
+
+<div class="col-md-6 col-md-offset-3">
+  <br/>
+  <div class="panel">
+    <div class="panel-heading ">Add a new Asset</div>
+    <div class="panel-body">
+
+      <form (ngSubmit)="addAsset()" #assetForm="ngForm">
+        <div class="form-group">
+          <label for="assetName">Asset Name</label>
+          <input type="text" class="form-control" id="assetName"
+                 required
+                  name="assetName" >
+          <label for="assetCategory">Asset Category</label>
+          <select required id="assetCategory" name="assetCategory" class="form-control">  
+            <option disabled>Select a Category</option>  
+            <option>Laptop</option>  
+            <option>Desktop</option>  
+            <option>VoIP</option>  
+            <option>Router</option>    
+        </select> 
+        <label for="assetDescription">Asset Description</label>
+        <textarea required maxlength="50"
+        id="assetDescription" name="assetDescription" class="form-control">
+        </textarea>
+        <label for="dateOfPurchase">Date of Purchase</label>
+          <input type="text" class="form-control" id="dateOfPurchase"
+                 required
+                  name="dateOfPurchase" placeholder="mm/dd/yyyy">
+        <label for="date">Date of Purchase</label>
+          <input type="text" class="form-control" id="dateOfPur"
+                 required
+                  name="dateOfPur" placeholder="mm/dd/yyyy">
+          <label for="assetCost">Asset Cost</label>
+          <input type="text" class="form-control" id="assetCost"
+                         required
+                          name="assetCost" >
+                 
+          <!--<div [hidden]="name.valid || name.pristine"
+               class="alert alert-danger">
+            Name is required
+          </div> -->
+        </div>
+  
+        
+          <button type="submit" class="btn btn-success" 
+          [disabled]="!assetForm.form.valid">Submit</button>
+  
+        </form>
+    </div>
+  </div>
+</div>
