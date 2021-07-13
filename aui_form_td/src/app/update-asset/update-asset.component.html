@@ -1,0 +1,39 @@
+<!--
+    Note:
+        1. Use formControlName as id for each input field. 
+    eg:
+        <input type="text" formControlName="userName" id="userName"/>
+-->
+
+<div class="row">
+  <br/>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Update Asset</div>
+      <div class="panel-body">
+        <form (ngSubmit)="updateAsset()" [formGroup]="updateAssetForm">
+          <div class="form-group">
+            <label for="updateField">Field</label>
+            <select  id="updateField" formControlName="updateField" class="form-control">  
+              <option disabled value="">Select a Field</option>  
+              <option value="assetName">Asset Name</option>  
+              <option value="assetCategory">Asset Category</option>  
+              <option value="assetDescription">Asset Description</option>  
+                
+          </select> 
+          <span *ngIf="updateAssetForm.get('updateField').invalid && updateAssetForm.get('updateField').touched "
+        class="help-block">Please Select Field</span>
+          <label for="updateValue">Value</label>
+          <input type="text" class="form-control" id="updateValue"  formControlName="updateValue">
+          <span *ngIf="updateAssetForm.get('updateValue').invalid && updateAssetForm.get('updateValue').touched "
+          class="help-block">Please Enter a value</span>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="updateAssetForm.invalid">Update Asset</button>
+        </form>
+        <span id="message" name="message" style="color: green;" >{{successMessage}}</span>
+        
+       
+      </div>
+    </div>
+  </div>
+</div>
